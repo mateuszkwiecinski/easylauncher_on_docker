@@ -1,0 +1,25 @@
+name: Build Project
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  cancel-previous-workflows:
+    name: Cancel previous workflow runs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - run: docker build -t android:test .
+
+      - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew assDeb'
