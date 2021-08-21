@@ -23,3 +23,8 @@ jobs:
       - run: docker build -t android:test .
 
       - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew assDeb'
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: easylauncher
+          path: app/build/generated/easylauncher
