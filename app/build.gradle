@@ -47,7 +47,13 @@ android {
         }
     }
 }
-
+easylauncher {
+    buildTypes {
+        debug {
+            filters = chromeLike(label: "staging")
+        }
+    }
+}
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.6.0'
