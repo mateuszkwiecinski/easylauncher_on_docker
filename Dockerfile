@@ -1,2 +1,3 @@
-FROM alvrme/alpine-android:android-30-jdk8
+
+FROM alvrme/alpine-android:android-30-jdk11
 RUN apk add --no-cache freetype fontconfig
