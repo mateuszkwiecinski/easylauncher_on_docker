@@ -22,7 +22,7 @@ jobs:
 
       - run: docker build -t android:test .
 
-      - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew assDeb'
+      - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew assDeb --stacktrace'
 
       - uses: actions/upload-artifact@v2
         with:
