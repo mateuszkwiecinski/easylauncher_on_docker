@@ -14,7 +14,7 @@ abstract class TestTask extends DefaultTask {
     def execute() {
         def ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         if (ge) {
-            def beforeFonts = eg.getAvailableFontFamilyNames()
+            def beforeFonts = ge.getAvailableFontFamilyNames()
             println("before(size)=${beforeFonts?.size()}")
             println("before=${beforeFonts}")
         } else {
@@ -26,7 +26,7 @@ abstract class TestTask extends DefaultTask {
         println("Loaded font=${fontFile}, font=$font")
 
         if (ge) {
-            def afterFonts = eg.getAvailableFontFamilyNames()
+            def afterFonts = ge.getAvailableFontFamilyNames()
             println("after(size)=${afterFonts?.size()}")
             println("after=${afterFonts}")
         }
