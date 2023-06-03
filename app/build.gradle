@@ -1,4 +1,5 @@
 import java.awt.Font
+import java.awt.GraphicsEnvironment
 
 tasks.register("loadFont", TestTask) {
     fontFile = rootProject.file("Roboto-Regular.ttf")
@@ -11,9 +12,13 @@ abstract class TestTask extends DefaultTask {
 
     @TaskAction
     def execute() {
+        println("before(size)=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts().size()}")
+        println("before=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()}")
         def stream = new FileInputStream(fontFile)
         def font = Font.createFont(Font.TRUETYPE_FONT, stream)
         stream.close()
         println("Loaded font=${fontFile}, font=$font")
+        println("after(size)=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts().size()}")
+        println("after=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts().size()}")
     }
 }
