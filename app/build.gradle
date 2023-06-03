@@ -12,13 +12,15 @@ abstract class TestTask extends DefaultTask {
 
     @TaskAction
     def execute() {
-        println("before(size)=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts().size()}")
-        println("before=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts()}")
+        def beforeFonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()
+        println("before(size)=${beforeFonts?.size()}")
+        println("before=${beforeFonts}")
         def stream = new FileInputStream(fontFile)
         def font = Font.createFont(Font.TRUETYPE_FONT, stream)
         stream.close()
         println("Loaded font=${fontFile}, font=$font")
-        println("after(size)=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts().size()}")
-        println("after=${GraphicsEnvironment.getLocalGraphicsEnvironment().getAllFonts().size()}")
+        def afterFonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames()
+        println("after(size)=${afterFonts?.size()}")
+        println("after=${afterFonts}")
     }
 }
