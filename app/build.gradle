@@ -1,6 +1,6 @@
 import java.awt.Font
 
-tasks.register("assDeb", TestTask) {
+tasks.register("loadFont", TestTask) {
     fontFile = rootProject.file("Roboto-Regular.ttf")
 }
 
