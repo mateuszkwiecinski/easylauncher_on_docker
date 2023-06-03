@@ -17,7 +17,7 @@ jobs:
 
       - run: docker build -t android:test .
 
-      - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew loadFont'
+      - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew loadFont --stacktrace --scan'
 
       - uses: actions/upload-artifact@v3
         with:
