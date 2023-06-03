@@ -12,6 +12,7 @@ abstract class TestTask extends DefaultTask {
 
     @TaskAction
     def execute() {
+        GraphicsEnvironment.getLocalGraphicsEnvironment() // ???
         def beforeFonts = GraphicsEnvironment.getLocalGraphicsEnvironment()?.getAvailableFontFamilyNames()
         println("before(size)=${beforeFonts?.size()}")
         println("before=${beforeFonts}")
