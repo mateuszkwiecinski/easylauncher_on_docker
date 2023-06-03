@@ -1,2 +1,3 @@
 FROM alvrme/alpine-android:android-33-jdk11
-RUN apk add --no-cache ttf-freefont
+RUN apk add --no-cache freetype fontconfig ttf-dejavu
+
