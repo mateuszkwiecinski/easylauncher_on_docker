@@ -19,9 +19,7 @@ abstract class TestTask extends DefaultTask {
         } else {
             println("WTF!? ge=$ge")
         }
-        def stream = new FileInputStream(fontFile)
-        def font = Font.createFont(Font.TRUETYPE_FONT, stream)
-        stream.close()
+        def font = Font.createFont(Font.TRUETYPE_FONT, fontFile)
         println("Loaded font=${fontFile}, font=$font")
 
         if (ge) {
