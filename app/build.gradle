@@ -14,8 +14,8 @@ abstract class TestTask extends DefaultTask {
     def execute() {
         def ge = GraphicsEnvironment.getLocalGraphicsEnvironment()
         if (ge) {
-            def beforeFonts = ge.getAllFonts()
-            println("before(size)=${beforeFonts?.size()}")
+//            def beforeFonts = ge.getAllFonts()
+//            println("before(size)=${beforeFonts?.size()}")
         } else {
             println("WTF!? ge=$ge")
         }
