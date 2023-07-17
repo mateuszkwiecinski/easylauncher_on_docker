@@ -19,6 +19,8 @@ jobs:
 
       - run: docker run --rm -v `pwd`:/project  android:test bash -c 'cd /project; ./gradlew loadFont --stacktrace'
 
+      - run: cp /project/hs_err_pid44.log /var/log/java44.log
+
       - uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
@@ -31,7 +33,5 @@ jobs:
           name: crash_log
           path: |
             /var/log/java/*.log
-            file:///project/hs_err_pid43.log
             file:///project/hs_err_pid44.log
-            /project/hs_err_pid43.log
             /project/hs_err_pid44.log
