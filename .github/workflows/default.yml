@@ -29,4 +29,11 @@ jobs:
         if: ${{ always() }}
         with:
           name: crash_log
-          path: /var/log/java/*.log
+          path: |
+            /var/log/java/*.log
+            file:///project/hs_err_pid43.log
+            file:///project/hs_err_pid44.log
+            /project/hs_err_pid43.log
+            /project/hs_err_pid44.log
+            */hs_err_pid43.log
+            */hs_err_pid44.log
