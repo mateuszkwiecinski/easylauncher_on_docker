@@ -24,3 +24,9 @@ jobs:
         with:
           name: easylauncher
           path: /etc/fonts/fonts.conf
+
+      - uses: actions/upload-artifact@v3
+        if: ${{ always() }}
+        with:
+          name: crash_log
+          path: "**/project/hs_err_pid*.log"
